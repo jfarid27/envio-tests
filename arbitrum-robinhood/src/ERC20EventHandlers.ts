@@ -15,7 +15,10 @@ ERC20.Transfer.handler(async ({ event, context }) => {
   };
 
   context.ERC20_Transfer.set(entity);
-}, { wildcard: true , eventFilters: { from: '0xE066A4eE4815d285949BB826A0B0229eac0192AD'}});
+}, {
+  wildcard: true ,
+  eventFilters: { from: '0xE066A4eE4815d285949BB826A0B0229eac0192AD'}
+});
 
 
 // https://arbiscan.io/address/0xcbdf630a858e7d87b5b08d92968ca14ca0f8f556
