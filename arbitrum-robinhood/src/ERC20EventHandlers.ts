@@ -1,6 +1,13 @@
 import { ERC20, ERC20_Transfer } from "generated";
 
+const ROBINHOOD_ADDRESS = '0xE066A4eE4815d285949BB826A0B0229eac0192AD';
+
 ERC20.Transfer.handler(async ({ event, context }) => {
+
+  if (event.transaction.from?.toLowerCase() !== ROBINHOOD_ADDRESS.toLowerCase()) {
+    return;
+  }
+
   const entity: ERC20_Transfer = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     from: event.params.from,
@@ -15,9 +22,10 @@ ERC20.Transfer.handler(async ({ event, context }) => {
   };
 
   context.ERC20_Transfer.set(entity);
+
 }, {
-  wildcard: true ,
-  eventFilters: { from: '0xE066A4eE4815d285949BB826A0B0229eac0192AD'}
+  wildcard: true,
+  eventFilters: { from: "0x0000000000000000000000000000000000000000"}
 });
 
 

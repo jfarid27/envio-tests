@@ -9,11 +9,11 @@ contracts:
       - event: Transfer
         field_selection:
           transaction_fields:
+            - "from"
             - "hash"
 networks:
   - id: 42161 # Arbitrum
     start_block: 339730653
     contracts:
       - name: ERC20
-        address: 0xaf88d065e77c8cC2239327C5EDb3A432268e5831
 unordered_multichain_mode: true
