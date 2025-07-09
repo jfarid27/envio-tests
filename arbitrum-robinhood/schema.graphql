@@ -1,0 +1,11 @@
+type ERC20_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt! @config(precision: 76)
+  timestamp: Timestamp!
+  chainId: Int!
+  blockNumber: Int!
+  logIndex: Int!
+  transactionHash: String!
+}
