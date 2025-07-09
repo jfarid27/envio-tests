@@ -8,4 +8,5 @@ type ERC20_Transfer {
   blockNumber: Int!
   logIndex: Int!
   transactionHash: String!
+  sourceAddress: String!
 }
